@@ -1,0 +1,33 @@
+<html ng-app="myapp">
+
+<head>
+  <script src="https://code.jquery.com/jquery.min.js"></script>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+  <link href="Default.css" rel="stylesheet" type="text/css" />
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
+  <script src="Default.ts"></script>
+  <meta charset="utf-8">
+</head>
+
+<body ng-controller="DataController as dataCtrl">
+  <p>練習題四</p>
+  <p>三層連動下拉式選單</p>
+  <div>
+    <select ng-model="dataCtrl.sort" ng-options="sort.name for sort in dataCtrl.data" ng-change="dataCtrl.change(dataCtrl.sort,'sort')"
+    class="form-control">
+      <option value="">請選擇</option>
+    </select>
+    <select ng-model="dataCtrl.type" ng-options="type.name for type in dataCtrl.types" ng-change="dataCtrl.change(dataCtrl.type,'type')"
+    class="form-control">
+      <option value="">請選擇</option>
+    </select>
+    <select ng-model="dataCtrl.item" ng-options="item.name for item in dataCtrl.items" class="form-control">
+      <option value="">請選擇</option>
+    </select>
+    <button ng-click="dataCtrl.clear()" class="btn btn-default">Clear</button>
+    <label ng-show="dataCtrl.item" class="pull-right">{{dataCtrl.sort.name}}/{{dataCtrl.type.name}}/{{dataCtrl.item.name}}</label>
+  </div>
+</body>
+
+</html>
